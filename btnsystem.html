@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+	<title>Multi toggle</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
+	<script src="remove.js"></script>
+	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="remove2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Bootstrap 5 js  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+    <style>
+        .act {
+            color: white;
+            font-size: 33px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 5cm;
+        }
+
+        .deact{
+            color: white;
+            font-size: 33px;
+            display: flex;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+            min-height: 5cm;
+        }
+
+        
+        /* Use a media query to add a break point at 800px: */
+        
+        .line-gap {
+            margin-bottom: 1.4cm;
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+
+
+
+    <!-- Add sound on click -->
+    <audio id="audio" src="click.mp3" autostart="false"></audio>
+
+
+
+    <div style="padding:10px;background-color: #6C8784; text-align: center;" class="container-fluid">
+        <h2 style="color: White; text-shadow: 2px 2px 4px #000000;;">WEB BASED CONTROLLED HOME AUTOMATION SYSTEM</h2>
+    </div>
+
+    <div class="container-fluid">
+
+       
+
+        <div class="row">
+            <div class="col-md-9 bg-danger p-0">
+                <img src="1.png" alt="" class="img-fluid" style="object-fit: fill; width: 100%;">
+            </div>
+            <div class="col-md-3 p-0" >
+    
+                <div style="height: 202px; margin-top: 2px; background-color: #11845a; margin-left: 2px; "> <div class="act">ACTIVATE</div>  </div>
+                
+                <div style="height: 202px;  margin-top: 2px; background-color: #c51f1f; margin-left: 2px; margin-bottom: 2px;"> <div class="deact"> DEACTIVATE </div>
+                
+            </div>  
+        </div>
+
+
+
+       
+
+    </div>
+    
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+        
+        
+        <div style="background-color:#031321;" class="col-12 col-md-3">
+            <div class="boarder1">
+        
+                <div class="light" id="b1">
+                    <div class="bulb">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <!--<div class="switch">   // if want can apply normal switch and btn also..
+                            <div class="btn"></div>
+                        </div>  -->
+                </div>
+        
+        
+                <div class="line-gap"></div> <!--line gap comand bwteen bulb and the text-->
+        
+        
+                <h2 style="color: White; text-align:center; "> Living Room Light </h2>
+                <div class="progress-sw">
+                    <a class="icon1">
+                        <i class="fas fa-4x fa-tv"></i>
+                    </a>
+        
+                    <div class="toggle-btn1" id="unact1">
+                        <div class="inner-circle"></div>
+        
+                    </div>
+                    <div class="toggle-btn1 active" id="act1">
+                        <div class="inner-circle"></div>
+        
+                    </div>
+                </div>
+        
+        
+            </div>
+        </div>
+    
+
+
+        
+    
+        <div style="background-color:#2d0346;" class="col-12 col-md-3">
+            <div class="boarder2">
+                <div class="light" id="b2">
+                    <div class="bulb">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+        
+        
+                <div class="line-gap"></div> <!--line gap comand bwteen bulb and the text-->
+        
+        
+                <h2 style="color: White; text-align:center; "> kitchen Room Light </h2>
+                <div class="progress-sw">
+                    <a class="icon1">
+                        <i class="fas fa-4x fa-utensils"></i>
+                    </a>
+        
+                    <div class="toggle-btn2" id="unact2">
+                        <div class="inner-circle"></div>
+        
+                    </div>
+                    <div class="toggle-btn2 active" id="act2">
+                        <div class="inner-circle"></div>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+
+
+       
+        <div style="background-color: #06595f;" class="col-12 col-md-3">
+            <div class="boarder3">
+        
+                <div class="light" id="b3">
+                    <div class="bulb">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+        
+                <div class="line-gap"></div> <!--line gap comand bwteen bulb and the text-->
+        
+        
+                <h2 style="color: White; text-align: center; "> Bath Room Light </h2>
+                <div class="progress-sw">
+                    <a class="icon1">
+                        <li class="fas fa-4x fa-bath"></li>
+                    </a>
+                    <div class="toggle-btn3" id="unact3">
+                        <div class="inner-circle"></div>
+        
+                    </div>
+                    <div class="toggle-btn3 active" id="act3">
+                        <div class="inner-circle"></div>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+
+    
+        <div style="background-color: #540d1f;" class="col-12 col-md-3">
+            <div class="boarder4">
+                <div class="light" id="b4">
+                    <div class="bulb">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+        
+                <div class="line-gap"></div> <!--line gap comand bwteen bulb and the text-->
+        
+        
+                <h2 style="color: White; text-align: center; "> Bed Room Light </h2>
+                <div class="progress-sw">
+        
+                    <a class="icon1">
+                        <li class="fas fa-4x fa-bed"></li>
+                    </a>
+                    <div class="toggle-btn4" id="unact4">
+                        <div class="inner-circle"></div>
+        
+                    </div>
+                    <div class="toggle-btn4 active" id="act4">
+                        <div class="inner-circle"></div>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+</body>
+</html>
